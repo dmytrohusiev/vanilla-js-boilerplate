@@ -114,7 +114,7 @@
         function showPopup() {
             Telegram.WebApp.showPopup({
                 title: 'Title',
-                message: Telegram.WebApp.initData,
+                message: JSON.stringify(Telegram.WebApp.initData),
                 buttons: [
                     {id: 'link', type: 'default', text: 'Open ton.org'},
                     {type: 'cancel'},
