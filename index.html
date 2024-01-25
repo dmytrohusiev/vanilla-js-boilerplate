@@ -114,7 +114,7 @@
         function showPopup() {
             Telegram.WebApp.showPopup({
                 title: 'Title',
-                message: 'Some message',
+                message: Telegram.WebApp.initData,
                 buttons: [
                     {id: 'link', type: 'default', text: 'Open ton.org'},
                     {type: 'cancel'},
@@ -155,8 +155,5 @@
 
     </script>
 
-    <!-- Eruda is console for mobile browsers -->
-    <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
-    <script>eruda.init();</script>
 </body>
 </html>
