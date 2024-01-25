@@ -87,6 +87,7 @@
         <h1>Buttons</h1>
         <button onclick="Telegram.WebApp.expand();">Expand Webview</button>
         <button onclick="toggleMainButton();">Toggle Main Button</button>
+        <div id="text-me"></div>
     </main>
     <div id="viewport"></div>
     <div id="viewport-params-size"></div>
@@ -114,7 +115,7 @@
         function showPopup() {
             Telegram.WebApp.showPopup({
                 title: 'Title',
-                message: JSON.stringify(Telegram.WebApp.initData),
+                message: 'Some text',
                 buttons: [
                     {id: 'link', type: 'default', text: 'Open ton.org'},
                     {type: 'cancel'},
@@ -152,6 +153,9 @@
         Telegram.WebApp.onEvent('themeChanged', function() {
             document.body.setAttribute('style', '--bg-color:' + Telegram.WebApp.backgroundColor);
         });
+
+        const el = document.querySelector('#text-me');
+        el.innerText = JSON.stringify(Telegram.WebApp.initData)
 
     </script>
 
