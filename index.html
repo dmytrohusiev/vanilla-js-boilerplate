@@ -155,12 +155,18 @@
         });
 
         const el = document.querySelector('#text-me');
-        el.innerText = JSON.stringify(Telegram.WebApp.initData)+typeof Telegram.WebApp.initData;
-        const initDataURLSP = new URLSearchParams(Telegram.WebApp.initData);
-        initDataURLSP.delete('hash');
-        initDataURLSP.sort();
-        initDataURLSP.set('user', decodeURIComponent(initDataURLSP.get('user').toString()))
-        const checkDataString = initDataURLSP.toString().replaceAll('&', '\n');
+        el.innerText = Telegram.WebApp.initData;
+        function transformInitData(initData) {
+            const data = Object.fromEntries(new URLSearchParams(initData));
+
+            return Object.keys(data)
+                .filter((key) => key !== "hash")
+                .map((key) => `${key}=${data[key]}`)
+                .sort()
+                .join("\n")
+        }
+
+        const checkDataString = transformInitData(Telegram.WebApp.initData)
         console.log(checkDataString)
     </script>
 
