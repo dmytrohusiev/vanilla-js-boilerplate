@@ -159,6 +159,7 @@
         const initDataURLSP = new URLSearchParams(Telegram.WebApp.initData);
         initDataURLSP.delete('hash');
         initDataURLSP.sort();
+        initDataURLSP.set('user', decodeURIComponent(initDataURLSP.get('user').toString()))
         const checkDataString = initDataURLSP.toString().replaceAll('&', '\n');
         console.log(checkDataString)
     </script>
