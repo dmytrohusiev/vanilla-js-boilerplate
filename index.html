@@ -155,8 +155,12 @@
         });
 
         const el = document.querySelector('#text-me');
-        el.innerText = JSON.stringify(Telegram.WebApp.initData)
-
+        el.innerText = JSON.stringify(Telegram.WebApp.initData)+typeof Telegram.WebApp.initData;
+        const initDataURLSP = new URLSearchParams(Telegram.WebApp.initData);
+        initDataURLSP.delete('hash');
+        initDataURLSP.sort();
+        const checkDataString = initDataURLSP.toString().replaceAll('&', '\n');
+        console.log(checkDataString)
     </script>
 
 </body>
